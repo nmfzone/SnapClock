@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: SnapClock
+        psr4_prefix: SnapClock
+        src_path: app
