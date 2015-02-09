@@ -26,4 +26,7 @@ Route::group(['namespace' => 'API'], function()
         'as' => 'departements.show',
         'uses' => 'DepartementsController@show'
     ]);
+
+    Route::resource('religions', 'ReligionController', ['only' => 'index']);
+    Route::resource('gender', 'GenderController', ['only' => 'index']);
 });
