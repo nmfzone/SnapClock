@@ -40,7 +40,7 @@ class CreateReligionsTable extends Migration {
      */
     private function fill()
     {
-        DB::table('religion')->insert(
+        DB::table('religions')->insert(
             [
                 [
                     'code' => 'I',

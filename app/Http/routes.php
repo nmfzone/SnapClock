@@ -19,3 +19,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['namespace' => 'API'], function()
+{
+    Route::get('departements', [
+        'as' => 'departements.show',
+        'uses' => 'DepartementsController@show'
+    ]);
+});

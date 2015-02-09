@@ -33,17 +33,17 @@ class CreateEmployeesTable extends Migration {
             $table->string('postcode');
 			$table->timestamps();
 
-            $table->foreign('departement_id')
-                  ->references('id')->on('departements')
-                  ->onDelete('cascade');
-
-            $table->foreign('gender_id')
-                  ->references('id')->on('gender')
-                  ->onDelete('cascade');
-
-            $table->foreign('religion_id')
-                  ->references('id')->on('religions')
-                  ->onDelete('cascade');
+//            $table->foreign('departement_id')
+//                  ->references('id')->on('departements')
+//                  ->onDelete('cascade');
+//
+//            $table->foreign('gender_id')
+//                  ->references('id')->on('gender')
+//                  ->onDelete('cascade');
+//
+//            $table->foreign('religion_id')
+//                  ->references('id')->on('religions')
+//                  ->onDelete('cascade');
 		});
 	}
 
