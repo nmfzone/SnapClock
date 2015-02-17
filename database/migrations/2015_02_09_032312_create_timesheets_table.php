@@ -15,14 +15,11 @@ class CreateTimesheetsTable extends Migration {
 		Schema::create('timesheets', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->dateTime('clock_in');
-            $table->dateTime('clock_out');
-            $table->string('photo_in');
-            $table->string('photo_out');
-            $table->time('duration');
             $table->integer('employee_id');
-            $table->date('snap_date');
-            $table->text('description');
+            $table->integer('week_number');
+            $table->date('sheet_date');
+            $table->integer('work_hour')->unsigned();
+            $table->enum('running', ['0', '1'])->default('1');
 			$table->timestamps();
 		});
 	}

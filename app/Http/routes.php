@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function(){
+    return View::make('layouts.default');
+});
 
 Route::get('home', 'HomeController@index');
 
@@ -30,3 +32,31 @@ Route::group(['namespace' => 'API'], function()
     Route::resource('religions', 'ReligionController', ['only' => 'index']);
     Route::resource('gender', 'GenderController', ['only' => 'index']);
 });
+
+Route::group(['namespace' => 'Snappy'], function()
+{
+    Route::get('login', [
+        'as' => 'login.index',
+        'uses' => 'SessionController@index'
+    ]);
+
+    Route::post('login', [
+        'as' => 'login.store',
+        'uses' => 'SessionController@store'
+    ]);
+
+    Route::resource('dashboard', 'DashboardController', ['only' => 'index']);
+    Route::resource('employee', 'EmployeeController');
+});
+
+Route::get('user', function()
+{
+    \SnapClock\Employee::create([
+        'username' => 'sugeng',
+        'firstname' => 'Sugeng',
+        'lastname' => 'Supriyadi',
+        'email' => 'me@sugeng.me',
+        'password' => Hash::make('secret')
+    ]);
+});
+
