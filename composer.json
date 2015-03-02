@@ -8,7 +8,8 @@
 		"laravel/framework": "5.0.*",
 		"guzzlehttp/guzzle": "~5.2",
 		"barryvdh/laravel-ide-helper": "~2.0",
-		"league/fractal": "0.11.*"
+		"league/fractal": "dev-master",
+		"intervention/image": "~2.1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

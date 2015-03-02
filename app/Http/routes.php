@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function(){
-    return View::make('layouts.default');
+    return View::make('login.index');
 });
 
 Route::get('home', 'HomeController@index');
@@ -29,8 +29,24 @@ Route::group(['namespace' => 'API'], function()
         'uses' => 'DepartementsController@show'
     ]);
 
+    Route::post('attendance/check', [
+        'as' => 'attendance.check',
+        'uses' => 'AttendanceController@show'
+    ]);
+
+    Route::post('attendance/store', [
+        'as' => 'attendance.store',
+        'uses' => 'AttendanceController@store'
+    ]);
+
     Route::resource('religions', 'ReligionController', ['only' => 'index']);
     Route::resource('gender', 'GenderController', ['only' => 'index']);
+});
+
+Route::get('token', function()
+{
+    $encrypter = app('Illuminate\Encryption\Encrypter');
+    return $encrypter->encrypt(csrf_token());
 });
 
 Route::group(['namespace' => 'Snappy'], function()
